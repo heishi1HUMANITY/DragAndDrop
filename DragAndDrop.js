@@ -1,4 +1,4 @@
-class drag_and_drop{
+class DragAndDrop{
     constructor(child){
         this.child = child;
     }
@@ -15,7 +15,7 @@ class drag_and_drop{
     }
 }
 
-const dd_child = document.querySelectorAll('.dd-child');
-for(let d of dd_child){
-    new drag_and_drop(d).addEvent();
+const ddChild = document.querySelectorAll('.dd-child');
+for(let d of ddChild){
+    new DragAndDrop(d).addEvent();
 }
