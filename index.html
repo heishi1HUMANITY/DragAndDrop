@@ -5,12 +5,22 @@
     </head>
     <body>
         <div class="dd-child"></div>
+        <div class="dd-child"></div>
+        <div class="dd-child"></div>
+
 
         <style>
             .dd-child{
                 height: 100px;
                 width: 100px;
                 background-color: black;
+                position: absolute;
+            }
+            .dd-child:nth-child(2){
+                background-color: blue;
+            }
+            .dd-child:nth-child(3){
+                background-color: brown;
             }
         </style>
         <script src="./DragAndDrop.js"></script>

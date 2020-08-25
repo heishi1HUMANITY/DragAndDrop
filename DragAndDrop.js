@@ -3,19 +3,15 @@ class drag_and_drop{
         this.child = child;
     }
     
-    #drag = e => {
-        const pre_top = this.child.offsetTop;
-        const pre_left = this.child.offsetLeft;
-        this.child.setAttribute('style',`position: absolute; top: ${pre_top + e.movementY}px; left: ${pre_left + e.movementX}px`);
-    }
+    #drag = e => this.child.setAttribute('style', `position: absolute; top: ${e.pageY - this.mouseY}px; left: ${e.pageX - this.mouseX}px`);
     
     addEvent = () => {
-        this.child.addEventListener('mousedown', () => {
-            this.child.addEventListener('mousemove', this.#drag);
+        this.child.addEventListener('mousedown', e => {
+            this.mouseX = e.offsetX;
+            this.mouseY = e.offsetY;
+            window.addEventListener('mousemove', this.#drag);
         });
-        this.child.addEventListener('mouseup', () => {
-            this.child.removeEventListener('mousemove', this.#drag);
-        });
+        this.child.addEventListener('mouseup', () => window.removeEventListener('mousemove', this.#drag));
     }
 }
 
